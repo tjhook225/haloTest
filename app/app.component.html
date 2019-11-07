@@ -1,0 +1,366 @@
+
+<mat-tab-group [selectedIndex]="selectedTab" (selectedTabChange)="tabChange($event)">
+  <mat-tab label="Home">
+      <div id="header">
+          <h1>Welcome to the HaloBros website!</h1>
+          <p>There has been a long believed theory that Sam, or AkaV1ct0rious as you may know him, is the best Halo player out of the Halo Bros. Where did
+            this theory come from? Who knows! All we know is that the public deserves a fair answer. On this website we 
+            attempt to debunk this theory and provide a factual argument about who is, in fact, the best player. With the help of the Halo developer API and our old friend
+          statistics, you will leave this website with a concrete answer on who the best player really is. (Hint: It's not Connor) </p>
+      </div>
+      
+      <div id="wrapper">
+      <div id="sam">
+        <div>
+          <img width="250" height="250" src="/assets/sam.png" alt="Sam">
+        </div>
+        <div>
+          <h2 style="font: bold;">Strengths: </h2>
+          <ul>
+            <li>Knows callouts</li>
+            <li>Good shot </li>
+            <li>Consistent performer</li>
+          </ul>
+        </div>
+        <div>
+            <h2 style="font: bold;">Weaknesses: </h2>
+            <ul>
+              <li>Lets bad games influence future play</li>
+              <li>Gets mad at other halo bros quickly</li>
+              <li>Plays too much Apex</li>
+            </ul>
+          </div>
+      </div>
+      <div id="connor">
+          <div>
+              <img src="/assets/connor.PNG" alt="Sam">
+            </div>
+        <div>
+            <h2 style="font: bold;">Strengths: </h2>
+            <ul>
+              <li>Positive attitude</li>
+              <li>Consistent accurcy</li>
+              <li>Can get in zones and go on runs</li>
+            </ul>
+          </div>
+          <div>
+              <h2 style="font: bold;">Weaknesses: </h2>
+              <ul>
+                <li>Selfish (doesn't care if team loses as long as he gets his)</li>
+                <li>Lack of communication at times</li>
+                <li>Inconsistent damage dealing</li>
+              </ul>
+            </div>
+      </div>
+      <div id="tom">
+          <div>
+              <img src="/assets/tom.jpeg" alt="Sam">
+            </div>
+        <div>
+            <h2 style="font: bold;">Strengths: </h2>
+            <ul>
+              <li>All around great guy</li>
+              <li>Absolute team player</li>
+              <li>Makes other players around him better</li>
+            </ul>
+          </div>
+          <div>
+              <h2 style="font: bold;">Weaknesses: </h2>
+              <ul>
+                <li>Inconsistent accuracy</li>
+                <li>Low kill volume</li>
+                <li>Takes things personal</li>
+              </ul>
+            </div>
+              
+      </div>
+    </div>
+      <footer style="text-align: center;">
+          <button mat-raised-button color="primary" (click)="goToStatsTab()">GO TO STATS TAB</button> 
+      </footer>
+    
+      
+  </mat-tab>
+  <mat-tab label="Stats">
+    <ng-template matTabContent>
+    <div id="header">
+      <h3>Yes, the page we were all waiting for. As the late Mac Miller once said, "people lie, numbers don't". Below you will see a graph containing
+        our career totals for various statistical categories in Halo 5.
+      </h3>
+    </div>
+    <div id="totalsTableDiv">
+
+
+    <table id="totalsTable" mat-table [dataSource]="brosTotals" class="mat-elevation-z8">
+          <caption><b>Career Totals</b></caption>
+            <!-- Position Column -->
+            <ng-container matColumnDef="gamerTag">
+                <th mat-header-cell *matHeaderCellDef>Gamer Tag</th>
+                <td mat-cell *matCellDef="let element"> {{element.GamerTag}} </td>
+              </ng-container>
+
+            <ng-container matColumnDef="spartanRank">
+                <th mat-header-cell *matHeaderCellDef>Spartan Rank</th>
+                <td mat-cell *matCellDef="let element"> {{element.SpartanRank}} </td>
+              </ng-container>
+
+            <ng-container matColumnDef="assinations">
+              <th mat-header-cell *matHeaderCellDef>Assinations</th>
+              <td mat-cell *matCellDef="let element"> {{element.TotalAssassinations}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="assists">
+              <th mat-header-cell *matHeaderCellDef> Assists </th>
+              <td mat-cell *matCellDef="let element"> {{element.TotalAssists}} </td>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="deaths">
+              <th mat-header-cell *matHeaderCellDef> Deaths </th>
+              <td mat-cell *matCellDef="let element"> {{element.TotalDeaths}} </td>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="gamesCompleted">
+              <th mat-header-cell *matHeaderCellDef> Games Completed </th>
+              <td mat-cell *matCellDef="let element"> {{element.TotalGamesCompleted}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="gamesLost">
+                <th mat-header-cell *matHeaderCellDef> Loses </th>
+                <td mat-cell *matCellDef="let element"> {{element.TotalGamesLost}} </td>
+            </ng-container>
+          <!-- Position Column -->
+          <ng-container matColumnDef="gamesTied">
+              <th mat-header-cell *matHeaderCellDef>Ties</th>
+              <td mat-cell *matCellDef="let element"> {{element.TotalGamesTied}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="gamesWon">
+              <th mat-header-cell *matHeaderCellDef> Wins </th>
+              <td mat-cell *matCellDef="let element"> {{element.TotalGamesWon}} </td>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="grenadeKills">
+              <th mat-header-cell *matHeaderCellDef> Grenade Kills </th>
+              <td mat-cell *matCellDef="let element"> {{element.TotalGrenadeKills}} </td>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="groundPoundDamage">
+              <th mat-header-cell *matHeaderCellDef> Ground Pound Damage </th>
+              <td mat-cell *matCellDef="let element"> {{element.TotalGroundPoundDamage}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="groundPoundKills">
+                <th mat-header-cell *matHeaderCellDef> Ground Pound Kills </th>
+                <td mat-cell *matCellDef="let element"> {{element.TotalGroundPoundKills}} </td>
+            </ng-container>
+          
+            <!-- Position Column -->
+            <ng-container matColumnDef="grenadeDamage">
+                <th mat-header-cell *matHeaderCellDef>Grenade Damage</th>
+                <td mat-cell *matCellDef="let element"> {{element.TotalGrenadeDamage}} </td>
+              </ng-container>
+            
+              <!-- Name Column -->
+              <ng-container matColumnDef="headshots">
+                <th mat-header-cell *matHeaderCellDef> Headshots </th>
+                <td mat-cell *matCellDef="let element"> {{element.TotalHeadshots}} </td>
+              </ng-container>
+            
+              <!-- Weight Column -->
+              <ng-container matColumnDef="kills">
+                <th mat-header-cell *matHeaderCellDef> Kills </th>
+                <td mat-cell *matCellDef="let element"> {{element.TotalKills}} </td>
+              </ng-container>
+            
+              <!-- Symbol Column -->
+              <ng-container matColumnDef="meleeDamage">
+                <th mat-header-cell *matHeaderCellDef> Melee Damage </th>
+                <td mat-cell *matCellDef="let element"> {{element.TotalMeleeDamage}} </td>
+              </ng-container>
+  
+              <ng-container matColumnDef="meleeKills">
+                  <th mat-header-cell *matHeaderCellDef> Melee Kills </th>
+                  <td mat-cell *matCellDef="let element"> {{element.TotalMeleeKills}} </td>
+              </ng-container>
+  
+              <ng-container matColumnDef="powerWeaponKills">
+                  <th mat-header-cell *matHeaderCellDef> Power Weapon Kills </th>
+                  <td mat-cell *matCellDef="let element"> {{element.TotalPowerWeaponKills}} </td>
+              </ng-container>
+          
+          <!-- Weight Column -->
+          <ng-container matColumnDef="shotsFired">
+              <th mat-header-cell *matHeaderCellDef> Shots Fired </th>
+              <td mat-cell *matCellDef="let element"> {{element.TotalShotsFired}} </td>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="shotsLanded">
+              <th mat-header-cell *matHeaderCellDef> Shots Landed </th>
+              <td mat-cell *matCellDef="let element"> {{element.TotalShotsLanded}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="shoulderBashDamage">
+                <th mat-header-cell *matHeaderCellDef> Shoulder Bash Damage </th>
+                <td mat-cell *matCellDef="let element"> {{element.TotalShoulderBashDamage}} </td>
+            </ng-container>
+        <!-- Weight Column -->
+        <ng-container matColumnDef="shoulderBashKills">
+            <th mat-header-cell *matHeaderCellDef> Shoulder Bash Kills </th>
+            <td mat-cell *matCellDef="let element"> {{element.TotalShoulderBashKills}} </td>
+          </ng-container>
+        
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="spartanKills">
+            <th mat-header-cell *matHeaderCellDef> Spartan Kills </th>
+            <td mat-cell *matCellDef="let element"> {{element.TotalSpartanKills}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="weaponDamage">
+              <th mat-header-cell *matHeaderCellDef> Weapon Damage </th>
+              <td mat-cell *matCellDef="let element"> {{element.TotalWeaponDamage}} </td>
+          </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <div style="text-align: center;">
+        <button mat-raised-button (click)="goToAlgorithm()" color="primary">ALGORITHM TAB</button>
+    </div>
+    
+  </div>
+  <div id="otherTables">
+  <div id="medalsTableDiv">
+      <table id="medalsTable" mat-table [dataSource]="medalsData" class="mat-elevation-z8">
+          <caption><b>Medals</b></caption>
+              <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef>Name</th>
+                  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+  
+              <ng-container matColumnDef="classification">
+                <th mat-header-cell *matHeaderCellDef>Classification</th>
+                <td mat-cell *matCellDef="let element"> {{element.classification}} </td>
+              </ng-container>
+            
+              <!-- Name Column -->
+              <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef> Description </th>
+                <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedMedalColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedMedalColumns;"></tr>
+      </table>
+      <mat-paginator id="medalsPaginator" [pageSizeOptions]="[5, 10, 20]" ></mat-paginator>
+      
+    </div>
+
+    <div id="weaponsTableDiv">
+        <table id="weaponsTable" mat-table [dataSource]="weaponsData" class="mat-elevation-z8">
+            <caption><b>Weapons</b></caption>
+                <!-- Position Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef>Name</th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                  </ng-container>
+    
+                <ng-container matColumnDef="description">
+                    <th mat-header-cell *matHeaderCellDef>Description</th>
+                    <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+                  </ng-container>
+    
+                <ng-container matColumnDef="smallIconImageUrl">
+                  <th mat-header-cell *matHeaderCellDef>Picture</th>
+                  <td mat-cell *matCellDef="let element"> <img [src]="element.smallIconImageUrl" /> </td>
+                </ng-container>
+  
+                <tr mat-header-row *matHeaderRowDef="displayedWeaponColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedWeaponColumns;"></tr>
+        </table>
+        <mat-paginator #weaponPaginator id="weaponsPaginator" [pageSizeOptions]="[5, 10, 20]" ></mat-paginator>
+      </div>
+  </div>
+</ng-template>
+    
+  </mat-tab>
+  <mat-tab label="New Algorithm">
+    <ng-template matTabContent>
+      
+      <div id="headerAlgorithm">
+        <h2>Why is Tom so fired up about this?</h2>
+        <p>For anyone who knows anything about Tom's Halo career they can all agree on one thing. He puts the team first. He shows this by the extrodinary amount of assists
+          he produces game in and game out. However, the 343 Industries algorithm used to decide worthiness as a Spartan puts little to no emphasis on assists. If it did, then Tom 
+          would consistently be ranked higher than Sam and Connor, however that is not the case. Another season, another Platinum 3 rank. Yet my collegues, with significantly less assists
+          than myself and not enough production in any other statistical category to make up for it, are diamonds. There are two possibilites. Either 343 has made El Elegido225 public enemy number 1
+          and will do whatever it takes to bring him down, or the algorithm used to rank aspiring spartans is seriously flawed. Since I no reason to suspect that El Elegido225 has done anything worth
+          punishment so cruel, it must the the algorithm that is messed up. So, my plan is to revamp the algoritm and make it more accurate by placing more emphasis on things that, you know, actually help 
+          the team win, like assists... (Btw Connor, an algorithm is just a series of steps that solve a problem, or in this specific case, a series of calculations to come up with your
+          season ranking)
+        </p>
+      </div>
+      <div id="wrapper">
+      <div id="algorithm343">
+        <h3>343 Industries CSR (Competitive Skill Rank) Algorithm</h3>
+        <p>
+          Taken directly from the Halo waypoint website, here is a quote explaining the purpose of the CSR. 
+          "The Competitive Skill Rating (CSR) system in Halo 5 is designed to ensure high quality matches between players of equal skill, on a per-playlist basis. When you first hop into any of the Arena playlists, you will play a series of placement matches before being earning your CSR. 
+          After you complete 10 games, you will be placed into one of 7 CSR ranks based on your performance."
+        </p>
+        <p>
+          However, we all know this is bogus because how many times have we got absolutely wrecked by people with "similar" ranking as ourselves? The answer is a lot.
+        </p>
+        <p>
+            Now, here is the part that really puzzles me. After you get your CSR, the only way to improve it is through wins. You could have 30 kills and 10 assists but if you lose
+            the game, your CSR will not improve. You would think that if they put that much emphasis on winning and playing as a team AFTER you have received your CSR, that they would
+            emphasize team based play and winning while playing in the ranking games. But, obviously they don't.
+          </p>
+      </div>
+      <div id="algorithmTom">
+          <h3>Tom's CSR Algorithm</h3>
+          <p>
+            As you may have noticed by this point in the website, Tom is very passionate about team play. He really values assists and distraction medals. So his algorithm takes into 
+            account many team centered statistics such as: 
+          </p>
+          <ul>
+            <li>assists</li>
+            <li>damage dealt</li>
+            <li>distraction medals</li>
+            <li>power weapons given up to more skilled players (e.g. rockets)</li>
+            <li>accurate call-outs</li>
+            <li>positive comments to keep team spirits high</li>
+          </ul>
+          <p>
+            Is this the best possible new algorithm to rank spartans? I don't know, you be the judge of that. However, I am sure we can all agree that Tom's algorithm is light-years ahead
+            of 343 Industries algorithm.
+          </p>
+        </div>
+
+        <div id="goToBestPlayer">
+          <button mat-raised-button color="primary" (click)="goToBestPlayer()">FIND OUT BEST PLAYER</button>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Best Player">
+      <ng-template matTabContent>
+        <h3 style="text-align: center;">You guessed it! El_Elegido225 is the last man standing! After taking into consideration all aspects of the game, including, but not limited to, kills, assists, deaths, 
+          teamwork, positive attitude, cool controllers, map awareness, call-out abilities and consistency, El_Elegido225 reigns supreme. He is the perfect combination of raw talent,
+           work ethic and charisma.
+        </h3>
+        <div style="width: 100%; vertical-align:middle; text-align:center">
+            <img src="/assets/tom.jpeg" alt="Tom">
+        </div>
+        
+      </ng-template>
+    </mat-tab>
+</mat-tab-group>
+
+
+
+

@@ -1,0 +1,223 @@
+#sam {
+    width: 33%;
+    height: 75%;
+    outline-color: blue;
+    float: left;
+}
+
+#connor {
+    width: 33%;
+    height: 75%;
+    outline-color: red;
+    float: left;
+}
+
+#tom {
+
+    width: 33%;
+    height: 75%;
+    outline-color: green;
+    float: left;
+}
+
+#header {
+    width: 100%;
+    height: 200px;
+    outline-color: purple;
+    text-align: center;
+}
+#headerAlgorithm {
+    width: 100%;
+    height: 30%;
+    outline-color: purple;
+    text-align: center;
+}
+
+footer {
+    margin: 20px auto;
+}
+#algorithm343, #algorithmTom {
+    width: 50%;
+    height: 75%;
+    float: left;
+}
+
+#wrapper {
+    width: 100%;
+    height: 550px;
+}
+
+#goToBestPlayer {
+    width: 100%;
+    height: 20%;
+    text-align: center;
+}
+
+.vertical { 
+    border-left: 6px solid black; 
+    height: 200px; 
+    position:absolute; 
+    left: 50%; 
+} 
+
+.field {
+    height: 10px !important;
+}
+
+#totalsTableDiv{
+    width:100%;
+    height: 500px;
+}
+
+#otherTables{
+    width:100%;
+    height: 500px;
+}
+
+#medalsTableDiv {
+    width: 50%;
+    height: 50%;
+    float: left;
+    margin: 20px auto;
+}
+
+#weaponsTableDiv {
+    width: 50%;
+    height: 50%;
+    float: left;
+    margin: 20px auto;
+}
+
+caption {
+    margin: 10px auto;
+}
+
+#medalsPaginator {
+    float: left;
+}
+
+#totalsTable {
+    width: 100%;
+}
+
+
+.mat-column-assinations {
+    width: 75px
+}
+
+.mat-column-assists {
+    width: 75px
+  }
+
+  .mat-column-deaths {
+    width: 75px
+  }
+
+  .mat-column-groundPoundDamage {
+    width: 150px
+  }
+
+  .mat-column-groundPoundKills {
+    width: 75px
+  }
+
+  .mat-column-headshots {
+    width: 75px
+  }
+
+
+  .mat-column-kills {
+    width: 75px
+  }
+
+  .mat-column-grenadeDamage {
+    width: 150px
+  }
+
+
+  .mat-column-meleeDamage {
+    width: 150px
+  }
+
+
+  .mat-column-meleeKills {
+    width: 100px
+  }
+
+
+  .mat-column-powerWeaponDamage {
+    width: 150px
+  }
+
+  .mat-column-shotsFired {
+    width: 75px
+  }
+
+  .mat-column-shotsLanded {
+    width: 75px
+  }
+
+  .mat-column-shoulderBashDamage {
+    width: 150px
+  }
+
+  .mat-column-shoulderBashKills {
+    width: 75px
+  }
+
+  .mat-column-spartanKills {
+    width: 75px
+  }
+
+  .mat-column-weaponDamage {
+    width: 150px
+  }
+
+  .mat-column-gamesLost {
+    width: 75px
+  }
+
+  .mat-column-gamesWon {
+    width: 75px
+  }
+
+  .mat-column-gamesTied {
+    width: 75px
+  }
+
+//   table{
+//     width:100%;
+//   }
+//   .mat-header-row {
+//     background-color: #3F51B5;
+//     color: white;
+//     font-weight: bold;
+//   }
+  
+//   .mat-header-cell {
+//     color: white;
+//     font-weight: bold;
+//     border-right: solid 0.5px white;
+//   }
+//   .mat-row:nth-child(odd) {
+//     background-color: white;
+//   }
+  
+//   .mat-row:nth-child(even) {
+//     background-color: #D3D3D3;
+//   }
+//   .mat-cell{
+//     border-right: solid 0.5px black;
+//   }
+//   .center-align.th {
+//     display: flex !important;
+//     justify-content: center !important;
+//     padding-left: 18px !important;
+//   }
+//   .center-align.td {
+//     display: flex !important;
+//     justify-content: center !important;
+//   }
+//   .left-align.th {
+//     padding-right: 18px !important;
+//   }
